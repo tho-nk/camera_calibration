@@ -4,30 +4,26 @@
 #include <opencv2/opencv.hpp>
 
 namespace bilberry::calibration {
-Calibration::Calibration(/* args */) {}
+Calibration::Calibration(const std::shared_ptr<IImageManager>& imageManager,
+                         const std::shared_ptr<ICameraConfiguration>& cameraConfiguration)
+    : cameraConfiguration_(cameraConfiguration), imageManager_(imageManager)
+{
+}
 
 Calibration::~Calibration() {}
 
-void Calibration::run() {
-    std::cout << "hello from Calibration" << std::endl;
-
-    // Load an image from a file
-    cv::Mat image = cv::imread(filePath.string());
-
-    // Check if the image was loaded successfully
-    if (image.empty()) {
-        std::cerr << "Error: Could not open or find the image" << std::endl;
-        return;
-    }
-
-    // Display the image in a window
-    // cv::imshow("Loaded Image", image);
-
-    // Save the image to a file
-    cv::imwrite("/workspaces/bilberry/output.jpg", image);
-
-    // Wait for a key press and then close the window
-    // cv::waitKey(0);
-    // cv::destroyAllWindows();
+void Calibration::drawLine(cv::Mat& image, const cv::Point& startPoint, const cv::Point& endPoint,
+                           const cv::Scalar& color, int width)
+{
+    std::cout << __FILE__ << ", " << __LINE__ << std::endl;
+    cv::line(image, startPoint, endPoint, color, width);
 }
+
+cv::Mat Calibration::load(const std::filesystem::path& input) { return imageManager_->load(input); }
+
+void Calibration::save(const std::filesystem::path& output, const cv::Mat& cvMat)
+{
+    imageManager_->save(output, cvMat);
+}
+
 }  // namespace bilberry::calibration

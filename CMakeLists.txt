@@ -25,8 +25,8 @@ find_package( OpenCV REQUIRED )
 set(BOOST_ROOT ${THIRD_PARTY}/boost/boost-1.81.0)
 
 set(GOOGLE_TEST_ROOT ${THIRD_PARTY}/googletest/googletest-1.13.0)
-list(APPEND CMAKE_PREFIX_PATH ${GOOGLE_TEST_ROOT})
-find_package(GTest REQUIRED)
+# list(APPEND CMAKE_PREFIX_PATH ${GOOGLE_TEST_ROOT})
+# find_package(GTest REQUIRED)
 
 set(SRC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
