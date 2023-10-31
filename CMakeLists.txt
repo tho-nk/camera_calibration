@@ -17,13 +17,19 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # System dependencies
 set(THIRD_PARTY ${CMAKE_CURRENT_SOURCE_DIR}/third-party)
+
 set(OPENCV_ROOT ${THIRD_PARTY}/opencv/opencv-4.8.0)
 list(APPEND CMAKE_PREFIX_PATH ${OPENCV_ROOT})
-
-set(BOOST_ROOT ${THIRD_PARTY}/boost/boost-1.81.0)
-set(GOOGLE_TEST_ROOT ${THIRD_PARTY}/googletest/googletest-1.13.0)
-
 find_package( OpenCV REQUIRED )
 
+set(BOOST_ROOT ${THIRD_PARTY}/boost/boost-1.81.0)
+
+set(GOOGLE_TEST_ROOT ${THIRD_PARTY}/googletest/googletest-1.13.0)
+list(APPEND CMAKE_PREFIX_PATH ${GOOGLE_TEST_ROOT})
+find_package(GTest REQUIRED)
+
+set(SRC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+
 add_subdirectory(src)
-#add_subdirectory(test/gtest)
+add_subdirectory(test/gtest)
