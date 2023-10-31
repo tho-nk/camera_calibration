@@ -2,3 +2,4 @@ build/
 .vscode/
 .clangd/
 third-party/
+output.jpg
