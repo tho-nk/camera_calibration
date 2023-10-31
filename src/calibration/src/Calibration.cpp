@@ -12,7 +12,7 @@ void Calibration::run() {
     std::cout << "hello from Calibration" << std::endl;
 
     // Load an image from a file
-    cv::Mat image = cv::imread("/workspaces/bilberry/calibration.jpg");
+    cv::Mat image = cv::imread(filePath.string());
 
     // Check if the image was loaded successfully
     if (image.empty()) {
