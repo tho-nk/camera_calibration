@@ -16,7 +16,7 @@ void Calibration::drawLine(cv::Mat& image, const cv::Point& startPoint, const cv
                            const cv::Scalar& color, int width)
 {
     std::cout << __FILE__ << ", " << __LINE__ << std::endl;
-    cv::line(image, startPoint, endPoint, color, width);
+    cv::line(image, startPoint, endPoint, color, width, cv::LINE_AA);
 }
 
 cv::Mat Calibration::load(const std::filesystem::path& input) { return imageManager_->load(input); }
