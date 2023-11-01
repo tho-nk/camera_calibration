@@ -5,8 +5,8 @@
 
 namespace bilberry::calibration {
 Calibration::Calibration(const std::shared_ptr<IImageManager>& imageManager,
-                         const std::shared_ptr<ICameraConfiguration>& cameraConfiguration)
-    : cameraConfiguration_(cameraConfiguration), imageManager_(imageManager)
+                         const std::shared_ptr<ICameraManager>& cameraManager)
+    : cameraManager_(cameraManager), imageManager_(imageManager)
 {
 }
 

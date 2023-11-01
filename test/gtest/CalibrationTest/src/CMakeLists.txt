@@ -3,9 +3,11 @@ project(testCalibration)
 
 
 include_directories(${GOOGLE_TEST_ROOT}/include)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
+include_directories(${RAPIDJSON_ROOT}/include)
 include_directories(${SRC_PATH})
 
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
 file(GLOB PROJECT_SRC *.cpp)
 

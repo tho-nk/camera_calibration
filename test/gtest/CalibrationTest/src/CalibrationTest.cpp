@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "MockCameraConfiguration.hpp"
+#include "MockCameraManager.hpp"
 #include "MockImageManager.hpp"
 #include "Utility.hpp"
 #include "calibration/include/Calibration.hpp"
@@ -16,15 +16,15 @@ class CalibrationBilberryTest : public ::testing::Test {
    protected:
     CalibrationBilberryTest()
         : mockImageManager(std::make_shared<MockImageManager>()),
-          mockCameraConfiguration(std::make_shared<MockCameraConfiguration>()),
-          calib(mockImageManager, mockCameraConfiguration)
+          mockCameraManager(std::make_shared<MockCameraManager>()),
+          calib(mockImageManager, mockCameraManager)
     {
     }
 
     void SetUp() override {}
 
     std::shared_ptr<MockImageManager> mockImageManager;
-    std::shared_ptr<MockCameraConfiguration> mockCameraConfiguration;
+    std::shared_ptr<MockCameraManager> mockCameraManager;
 
     bc::Calibration calib;
 };
@@ -82,5 +82,20 @@ TEST_F(CalibrationBilberryTest, drawRectangleTest)
 
     auto areIdentical = compareImage(expectedImage, receivedImage);
     EXPECT_TRUE(areIdentical);
+}
+
+TEST_F(CalibrationBilberryTest, getCameraPositionTest)
+{
+    const std::filesystem::path inputPath("/workspaces/bilberry/base-line/input.jpg");
+
+    cv::Point p1(738, 645);
+    cv::Point p2(1665, 621);
+    cv::Point p3(1754, 1066);
+    cv::Point p4(678, 1088);
+
+    auto originalImage = cv::imread(inputPath);
+    auto receivedImage = originalImage.clone();
+
+    // auto cameraPositio = calib.getCameraPosition();
 }
 }  // namespace bilberry::test
