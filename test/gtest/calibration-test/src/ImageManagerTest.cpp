@@ -21,7 +21,7 @@ class ImageManagerTest : public ::testing::Test {
 
 TEST_F(ImageManagerTest, loadTest)
 {
-    const std::filesystem::path inputPath("/workspaces/bilberry/base-line/input.jpg");
+    const std::filesystem::path inputPath("./base-line/input.jpg");
     auto loadedImage = imageManagerUT->load(inputPath);
     ASSERT_FALSE(loadedImage.empty());
     EXPECT_EQ(2560, loadedImage.cols);

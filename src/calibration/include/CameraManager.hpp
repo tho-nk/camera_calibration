@@ -5,9 +5,15 @@
 namespace bilberry::calibration {
 class CameraManager : public ICameraManager {
    public:
-    CameraManager() = default;
+    CameraManager(const std::filesystem::path& configPath);
     virtual ~CameraManager() = default;
 
-    virtual CameraParameters load(const std::filesystem::path& configPath) override;
+    virtual CameraParameters const& getCameraParameters() const override;
+
+   private:
+    void load_();
+
+    std::filesystem::path configPath_;
+    CameraParameters cameraParameters_;
 };
 }  // namespace bilberry::calibration

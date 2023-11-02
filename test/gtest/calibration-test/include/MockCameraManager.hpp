@@ -8,7 +8,7 @@ namespace bc = bilberry::calibration;
 namespace bilberry::test {
 class MockCameraManager : public bc::ICameraManager {
    public:
-    MOCK_METHOD(bc::CameraParameters, load, (const std::filesystem::path& configPath), (override));
+    MOCK_METHOD(bc::CameraParameters const&, getCameraParameters, (), (const override));
 };
 
 }  // namespace bilberry::test

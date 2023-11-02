@@ -12,17 +12,19 @@ namespace bilberry::test {
 
 class CameraManagerTest : public ::testing::Test {
    protected:
-    CameraManagerTest() : cameraManagerUT(std::make_shared<bc::CameraManager>()) {}
+    CameraManagerTest()
+        : cameraManagerUT(std::make_shared<bc::CameraManager>("./configurations/camera-configuration.json"))
+    {
+    }
 
     void SetUp() override {}
 
     std::shared_ptr<bc::CameraManager> cameraManagerUT;
 };
 
-TEST_F(CameraManagerTest, loadTest)
+TEST_F(CameraManagerTest, loadConfigTest)
 {
-    const std::filesystem::path configPath("/workspaces/bilberry/configurations/camera-configuration.json");
-    auto cameraParameters = cameraManagerUT->load(configPath);
+    auto cameraParameters = cameraManagerUT->getCameraParameters();
     EXPECT_DOUBLE_EQ(cameraParameters.aperture.height, 4.224);
     EXPECT_DOUBLE_EQ(cameraParameters.aperture.width, 5.632);
     EXPECT_DOUBLE_EQ(cameraParameters.fieldOfView.horizontal, 39);

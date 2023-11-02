@@ -13,6 +13,6 @@ class ICameraManager {
     ICameraManager() = default;
     virtual ~ICameraManager() = default;
 
-    virtual CameraParameters load(const std::filesystem::path& configPath) = 0;
+    virtual CameraParameters const& getCameraParameters() const = 0;
 };
 }  // namespace bilberry::calibration
