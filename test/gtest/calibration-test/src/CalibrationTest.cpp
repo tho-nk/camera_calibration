@@ -2,6 +2,7 @@
 #include <gtest/gtest.h>
 
 #include <memory>
+#include <vector>
 
 #include "MockCameraManager.hpp"
 #include "MockImageManager.hpp"
@@ -12,7 +13,12 @@ namespace bc = bilberry::calibration;
 
 namespace bilberry::test {
 
-class CalibrationBilberryTest : public ::testing::Test {
+struct CalibrationTestData {
+    std::vector<cv::Point> points;
+    cv::Point3d expectedCameraPosition;
+};
+
+class CalibrationBilberryTest : public ::testing::TestWithParam<CalibrationTestData> {
    protected:
     CalibrationBilberryTest()
         : mockImageManager(std::make_shared<MockImageManager>()),
@@ -99,4 +105,25 @@ TEST_F(CalibrationBilberryTest, getCameraPositionTest)
     double tolerance = 1e-6;
     EXPECT_NEAR(cv::norm(cv::Point3d(0.0204516, -0.059663, -0.0277426) - cameraPosition), 0.0, tolerance);
 }
+
+INSTANTIATE_TEST_SUITE_P(CalibrationBilberryTestParameters, CalibrationBilberryTest,
+                         ::testing::Values(CalibrationTestData{{cv::Point(738, 645), cv::Point(1665, 621),
+                                                                cv::Point(1754, 1066), cv::Point(678, 1088)},
+                                                               cv::Point3d(0.0204516, -0.059663, -0.0277426)},
+                                           CalibrationTestData{{cv::Point(500, 500), cv::Point(1000, 500),
+                                                                cv::Point(500, 1000), cv::Point(1000, 1000)},
+                                                               cv::Point3d(0.129225, 0.0231686, -0.0284667)}));
+
+TEST_P(CalibrationBilberryTest, CalibrationBilberryTestParameters)
+{
+    const auto& points = GetParam().points;
+    const auto& expectedCameraPosition = GetParam().expectedCameraPosition;
+    bc::CameraParameters cameraParams;
+    EXPECT_CALL(*mockCameraManager, getCameraParameters()).Times(1).WillOnce(testing::ReturnRef(cameraParams));
+    auto cameraPosition = calib.computeCameraPosition(points);
+    std::cout << "Camera Position (X, Y, Z): " << cameraPosition << std::endl;
+    double tolerance = 1e-6;
+    EXPECT_NEAR(cv::norm(expectedCameraPosition - cameraPosition), 0.0, tolerance);
+}
+
 }  // namespace bilberry::test
