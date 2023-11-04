@@ -13,6 +13,8 @@ class Calibration {
     void drawLine(cv::Mat& image, const cv::Point& startPoint, const cv::Point& endPoint, const cv::Scalar& color,
                   int width);
 
+    void drawRectangle(cv::Mat& image, const std::vector<cv::Point>& points, const cv::Scalar& color, int width);
+
     cv::Point3d computeCameraPosition(const std::vector<cv::Point>& points);
 
    private:

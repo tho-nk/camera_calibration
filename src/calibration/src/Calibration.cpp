@@ -12,8 +12,17 @@ Calibration::~Calibration() {}
 void Calibration::drawLine(cv::Mat& image, const cv::Point& startPoint, const cv::Point& endPoint,
                            const cv::Scalar& color, int width)
 {
-    std::cout << __FILE__ << ", " << __LINE__ << std::endl;
     cv::line(image, startPoint, endPoint, color, width, cv::LINE_AA);
+}
+
+void Calibration::drawRectangle(cv::Mat& image, const std::vector<cv::Point>& points, const cv::Scalar& color,
+                                int width)
+{
+    if (points.size() != 4) return;
+    for (auto i = 0; i < points.size() - 1; i++) {
+        drawLine(image, points[i], points[i + 1], color, width);
+    }
+    drawLine(image, points[points.size() - 1], points[0], color, width);
 }
 
 cv::Point3d Calibration::computeCameraPosition(const std::vector<cv::Point>& points)

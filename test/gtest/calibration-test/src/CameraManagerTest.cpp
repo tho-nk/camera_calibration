@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "Utility.hpp"
+#include "UtilityTest.hpp"
 #include "calibration/include/CameraManager.hpp"
 
 namespace bc = bilberry::calibration;
