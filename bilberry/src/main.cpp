@@ -12,17 +12,17 @@ namespace bc = bilberry::calibration;
 
 void signalHandler(int signal)
 {
-    std::clog << "[CALIB] signal handling" << std::endl;
+    std::clog << "[CALIB] Stop Calibration with signal:= " << signal << std::endl;
     exit(0);
 }
 
 int main()
 {
-    std::clog << "[CALIB] Calibration" << std::endl;
+    std::clog << "[CALIB] Start Calibration" << std::endl;
     signal(SIGINT, signalHandler);
 
     const std::filesystem::path inputPath("./base-line/input.jpg");
-    const std::filesystem::path outputPath("./base-line/drawed-rectangle.jpg");
+    const std::filesystem::path outputPath("./tmp/drawed-rectangle.jpg");
     const std::filesystem::path pointsPath("./data/image-points.json");
     std::shared_ptr<bc::IImageManager> imageManager = std::make_shared<bc::ImageManager>();
     std::shared_ptr<bc::ICameraManager> cameraManager =
@@ -40,13 +40,15 @@ int main()
                 auto image = imageManager->load(inputPath);
                 // load points from user
                 // use file for better illustration
-                const auto& [points, color] = bc::loadPoints(pointsPath);;
+                const auto& [points, color] = bc::loadPoints(pointsPath);
+                ;
                 calib.drawRectangle(image, points, color, 5);
                 imageManager->save(outputPath, image);
                 auto cameraPosition = calib.computeCameraPosition(points);
                 std::cout << "Camera Position (X, Y, Z): " << cameraPosition << std::endl;
             }
             else {
+                std::clog << "[CALIB] Stop Calibration" << std::endl;
                 break;
             }
         }

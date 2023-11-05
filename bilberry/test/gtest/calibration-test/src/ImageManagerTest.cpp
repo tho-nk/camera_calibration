@@ -30,7 +30,7 @@ TEST_F(ImageManagerTest, loadTest)
 
 TEST_F(ImageManagerTest, saveTest)
 {
-    const std::filesystem::path outputPath("./base-line/received.png");
+    const std::filesystem::path outputPath("./tmp/received.png");
     cv::Mat imageToSave(100, 100, CV_8UC3, cv::Scalar(255, 0, 0));
     imageManagerUT->save(outputPath, imageToSave);
     ASSERT_TRUE(std::filesystem::exists(outputPath));
