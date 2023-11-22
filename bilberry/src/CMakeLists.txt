@@ -13,7 +13,7 @@ add_executable(${PROJECT_NAME} ${PROJECT_SRC})
 
 target_link_libraries(
     ${PROJECT_NAME}
-  -L${BOOST_ROOT}/lib boost_system
+  # -L${BOOST_ROOT}/lib boost_system
   pthread
   calibration
   ${OpenCV_LIBS})
