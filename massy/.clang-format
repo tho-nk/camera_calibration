@@ -1,0 +1,9 @@
+BasedOnStyle: Google
+IndentWidth: 3
+PointerBindsToType: true
+
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
+ColumnLimit: 200
+BreakBeforeBraces: Stroustrup

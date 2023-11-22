@@ -1,7 +1,0 @@
-version: '3'
-services:
-  bilberry:
-    container_name: bilberry
-    image: iainttho/bilberry:1.0.0 
-    volumes:
-      - ./:/home/ugitho/workspaces

@@ -1,5 +1,5 @@
-export project_name=calibration
+export project_name=bin
 
 cd ${project_name}
 
-./bilberry
+./massy localhost 8080
