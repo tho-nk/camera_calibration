@@ -5,6 +5,8 @@ project(bilberry LANGUAGES C CXX)
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "Release")
 endif()
+# Set the CMP0144 policy to NEW
+cmake_policy(SET CMP0144 NEW)
 
 enable_testing()
 

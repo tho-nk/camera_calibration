@@ -7,5 +7,5 @@ export Rapidjson_Version='1.1.0'
 
 cd ${project_name}
 
-cmake -B build .
+cmake -B build -DCMAKE_BUILD_TYPE=Debug
 make -C build -j${nproc}
