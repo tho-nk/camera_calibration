@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(bilberry LANGUAGES C CXX)
+project(camera_calibration LANGUAGES C CXX)
 
 # Default Build Type to be Release
 if(NOT CMAKE_BUILD_TYPE)
@@ -10,7 +10,7 @@ endif()
 
 enable_testing()
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../calibration)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/../package)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

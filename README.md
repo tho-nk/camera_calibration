@@ -6,13 +6,13 @@ It requires:
 
 - CMake 3.22
 - GCC 11.4 and C++17 standard
-- Ubuntu 22.04 or the Docker image `iainttho/bilberry:1.0.0` based on Ubuntu 22.04.
+- Ubuntu 22.04 or the Docker image `iainttho/calibration:1.0.0` based on Ubuntu 22.04.
 
 # Build and Run
 
 **Running the Docker Container**
 
-The image `iainttho/bilberry:1.0.0` comes with preinstalled required packages:
+The image `iainttho/calibration:1.0.0` comes with preinstalled required packages:
 
 - boost 1.81.0
 - googletest 1.13.0
@@ -21,7 +21,7 @@ The image `iainttho/bilberry:1.0.0` comes with preinstalled required packages:
 
 This helps developers to have the same environment.
 
-The package provides a docker-compose.yaml file that defines the 'bilberry' service and mounts the current host directory to '~/workspaces' within the container.
+The package provides a docker-compose.yaml file that defines the 'calibration' service and mounts the current host directory to '~/workspaces' within the container.
 
 Start/Stop the Container:
 
@@ -32,7 +32,7 @@ Start/Stop the Container:
 
 Enter the container:
 
-- `docker exec -it bilberry /bin/bash`
+- `docker exec -it calibration /bin/bash`
 - `cd /home/ugitho/workspaces`
   
 Scripts are available to build, test, and run the project:

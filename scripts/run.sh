@@ -1,5 +1,5 @@
-export project_name=calibration
+export project_name=package
 
 cd ${project_name}
 
-./bilberry
+./camera_calibration
