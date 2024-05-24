@@ -6,9 +6,9 @@
 #include "UtilityTest.hpp"
 #include "calibration/include/CameraManager.hpp"
 
-namespace bc = bilberry::calibration;
+namespace bc = calibration;
 
-namespace bilberry::test {
+namespace test {
 
 class CameraManagerTest : public ::testing::Test {
    protected:
@@ -47,4 +47,4 @@ TEST_F(CameraManagerTest, loadConfigTest)
     EXPECT_DOUBLE_EQ(cameraParameters.resolution.height, 1920);
     EXPECT_DOUBLE_EQ(cameraParameters.resolution.width, 2560);
 }
-}  // namespace bilberry::test
+}  // namespace  test

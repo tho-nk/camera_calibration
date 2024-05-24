@@ -7,7 +7,7 @@
 #include <fstream>
 #include <iostream>
 
-namespace bilberry::calibration {
+namespace calibration {
 
 CameraManager::CameraManager(const std::filesystem::path& configPath) : ICameraManager(), configPath_(configPath)
 {
@@ -72,4 +72,4 @@ void CameraManager::load_()
 
 CameraParameters const& CameraManager::getCameraParameters() const { return cameraParameters_; }
 
-}  // namespace bilberry::calibration
+}  // namespace  calibration

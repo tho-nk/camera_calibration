@@ -6,9 +6,9 @@
 #include "UtilityTest.hpp"
 #include "calibration/include/ImageManager.hpp"
 
-namespace bc = bilberry::calibration;
+namespace bc = calibration;
 
-namespace bilberry::test {
+namespace test {
 
 class ImageManagerTest : public ::testing::Test {
    protected:
@@ -44,4 +44,4 @@ TEST_F(ImageManagerTest, saveTest)
     EXPECT_TRUE(areIdentical);
 }
 
-}  // namespace bilberry::test
+}  // namespace  test

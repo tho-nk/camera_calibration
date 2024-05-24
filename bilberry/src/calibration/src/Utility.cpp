@@ -6,7 +6,7 @@
 #include <fstream>
 #include <iostream>
 
-namespace bilberry::calibration {
+namespace calibration {
 std::tuple<std::vector<cv::Point>, cv::Scalar> loadPoints(const std::filesystem::path& pointsPath)
 {
     // create json validator
@@ -50,4 +50,4 @@ std::tuple<std::vector<cv::Point>, cv::Scalar> loadPoints(const std::filesystem:
 
     return std::make_tuple(points, color);
 }
-}  // namespace bilberry::calibration
+}  // namespace  calibration

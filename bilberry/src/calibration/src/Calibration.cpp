@@ -4,7 +4,7 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
 
-namespace bilberry::calibration {
+namespace calibration {
 Calibration::Calibration(const std::shared_ptr<ICameraManager>& cameraManager) : cameraManager_(cameraManager) {}
 
 Calibration::~Calibration() {}
@@ -67,4 +67,4 @@ cv::Point3d Calibration::computeCameraPosition(const std::vector<cv::Point>& poi
     return cameraPosition;
 }
 
-}  // namespace bilberry::calibration
+}  // namespace  calibration

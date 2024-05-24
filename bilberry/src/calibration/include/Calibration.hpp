@@ -5,7 +5,7 @@
 
 #include "CameraManager.hpp"
 
-namespace bilberry::calibration {
+namespace calibration {
 class Calibration {
    public:
     Calibration(const std::shared_ptr<ICameraManager>& cameraManager);
@@ -21,4 +21,4 @@ class Calibration {
     std::shared_ptr<ICameraManager> cameraManager_;
 };
 
-}  // namespace bilberry::calibration
+}  // namespace  calibration

@@ -2,7 +2,7 @@
 
 #include <vector>
 
-namespace bilberry::test {
+namespace test {
 bool compareImage(const cv::Mat& l, const cv::Mat& r, int channels)
 {
     std::vector<cv::Mat> lChannels, rChannels;
@@ -25,4 +25,4 @@ bool compareImage(const cv::Mat& l, const cv::Mat& r, int channels)
     }
     return areIdentical;
 }
-}  // namespace bilberry::test
+}  // namespace  test

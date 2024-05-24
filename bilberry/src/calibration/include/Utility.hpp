@@ -5,6 +5,6 @@
 #include <tuple>
 #include <vector>
 
-namespace bilberry::calibration {
+namespace calibration {
 std::tuple<std::vector<cv::Point>, cv::Scalar> loadPoints(const std::filesystem::path& pointsPath);
-}  // namespace bilberry::calibration
+}  // namespace  calibration

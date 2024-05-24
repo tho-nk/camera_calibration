@@ -7,7 +7,7 @@
 
 #include "CameraParameters.hpp"
 
-namespace bilberry::calibration {
+namespace calibration {
 class ICameraManager {
    public:
     ICameraManager() = default;
@@ -15,4 +15,4 @@ class ICameraManager {
 
     virtual CameraParameters const& getCameraParameters() const = 0;
 };
-}  // namespace bilberry::calibration
+}  // namespace  calibration

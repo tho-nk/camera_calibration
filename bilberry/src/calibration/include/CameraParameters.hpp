@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bilberry::calibration {
+namespace calibration {
 
 struct Aperture {
     double height{4.224};
@@ -43,4 +43,4 @@ struct CameraParameters {
     Resolution resolution;
 };
 
-}  // namespace bilberry::calibration
+}  // namespace  calibration

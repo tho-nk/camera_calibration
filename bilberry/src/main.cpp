@@ -8,7 +8,7 @@
 #include "calibration/include/ImageManager.hpp"
 #include "calibration/include/Utility.hpp"
 
-namespace bc = bilberry::calibration;
+namespace bc = calibration;
 
 void signalHandler(int signal)
 {

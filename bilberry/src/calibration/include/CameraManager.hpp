@@ -2,7 +2,7 @@
 
 #include "ICameraManager.hpp"
 
-namespace bilberry::calibration {
+namespace calibration {
 class CameraManager : public ICameraManager {
    public:
     CameraManager(const std::filesystem::path& configPath);
@@ -16,4 +16,4 @@ class CameraManager : public ICameraManager {
     std::filesystem::path configPath_;
     CameraParameters cameraParameters_;
 };
-}  // namespace bilberry::calibration
+}  // namespace  calibration

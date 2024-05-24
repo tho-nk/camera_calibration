@@ -9,9 +9,9 @@
 #include "UtilityTest.hpp"
 #include "calibration/include/Calibration.hpp"
 
-namespace bc = bilberry::calibration;
+namespace bc = calibration;
 
-namespace bilberry::test {
+namespace test {
 
 struct CalibrationTestData {
     std::vector<cv::Point> points;
@@ -156,4 +156,4 @@ TEST_P(CalibrationBilberryTest, CalibrationBilberryTestParameters)
     EXPECT_NEAR(cv::norm(expectedCameraPosition - cameraPosition), 0.0, tolerance);
 }
 
-}  // namespace bilberry::test
+}  // namespace  test

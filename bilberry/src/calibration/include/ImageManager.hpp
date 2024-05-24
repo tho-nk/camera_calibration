@@ -2,7 +2,7 @@
 
 #include "IImageManager.hpp"
 
-namespace bilberry::calibration {
+namespace calibration {
 
 class ImageManager : public IImageManager {
    public:
@@ -12,4 +12,4 @@ class ImageManager : public IImageManager {
     cv::Mat load(const std::filesystem::path& input) const override;
     void save(const std::filesystem::path& output, const cv::Mat& cvMat) const override;
 };
-}  // namespace bilberry::calibration
+}  // namespace  calibration
